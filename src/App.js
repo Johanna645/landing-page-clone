@@ -17,8 +17,8 @@ const headerStyle = css`
 `;
 
 const bodyStyle = css`
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 200px;
+  padding-right: 200px;
   background-color: #d7f1e7;
   text-align: center;
   color: #008080;
@@ -68,8 +68,8 @@ const bodyStyle = css`
 const columnStyle = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  width: 365px;
+  grid-gap: 1px;
+  width: 50% 50%;
   padding: 0 10px;
 `;
 
@@ -134,11 +134,15 @@ function App() {
           <h2>Here’s a quick look at our inside scoop schedule:</h2>
           <div css={columnStyle}>
             <div>
-              <img src={blogPicture1} alt="Daily Dishonesty" />
-              <img src={blogPicture2} alt="Ex Boyfriend Tears" />
-              <img src={blogPicture3} alt="Will Letter for Lunch" />
-              <img src={blogPicture4} alt="No Photos Please" />
-              <img src={blogPicture5} alt="Flour Crowns" />
+              <img src={blogPicture1} alt="Daily Dishonesty" width="300px" />
+              <img src={blogPicture2} alt="Ex Boyfriend Tears" width="300px" />
+              <img
+                src={blogPicture3}
+                alt="Will Letter for Lunch"
+                width="300px"
+              />
+              <img src={blogPicture4} alt="No Photos Please" width="300px" />
+              <img src={blogPicture5} alt="Flour Crowns" width="300px" />
             </div>
 
             <div>
@@ -149,6 +153,7 @@ function App() {
               </span>
 
               <a href="#1">Daily Dishonesty</a>
+
               <p class="column">
                 In 2012, I started a lettering blog that chronicled all of the
                 little white lies my friends and I told in college. Little did I
