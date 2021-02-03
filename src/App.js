@@ -17,13 +17,17 @@ const headerStyle = css`
 `;
 
 const bodyStyle = css`
+  padding-left: 25px;
+  padding-right: 25px;
   background-color: #d7f1e7;
   text-align: center;
   color: #008080;
-  font-family: playfair display, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'playfair display', Georgia, Times, 'Times New Roman', serif;
+
   h1 {
     font-size: 40px;
-    font-family: ;
+    /*font-family: ;*/
+    margin-block-start: 0;
   }
   p {
     font-size: 24;
@@ -42,9 +46,17 @@ const bodyStyle = css`
     color: #f68b8b;
   }
 
+  input {
+    margin-bottom: 24px;
+  }
+
   button {
     background-color: #f68b8b;
     color: white;
+    padding: 11 15 11 15;
+    :hover {
+      background-color: ;
+    }
   }
 
   a {
@@ -53,10 +65,23 @@ const bodyStyle = css`
   }
 `;
 
+const columnStyle = css`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 365px;
+  padding: 0 10px;
+`;
+
 const footerStyle = css`
+  height: 120px;
+  display: inline-block;
   a {
     font-size: 12px;
     color: #00add8;
+  }
+  p {
+    text-align: right;
   }
 `;
 
@@ -64,7 +89,7 @@ function App() {
   return (
     <div>
       <header css={headerStyle} />
-      <body css={bodyStyle}>
+      <div css={bodyStyle}>
         <section>
           <h1>You're invited to...</h1>
           <img src={mainPicture} alt="the Inside Scoop" />
@@ -90,7 +115,7 @@ function App() {
               learn from my mistakes)
             </li>
           </ol>
-          <p>
+          <p class="column">
             These videos will only be available to watch for *1 week* after
             recording unless you register for this event via email, so don’t
             delay! If you register, you'll receive a link with lifetime access
@@ -106,63 +131,93 @@ function App() {
         </section>
         <hr />
         <section>
-          <div>
-            <h2>Here’s a quick look at our inside scoop schedule:</h2>
-            <img src={blogPicture1} alt="Daily Dishonesty" />
-            <img src={blogPicture2} alt="Ex Boyfriend Tears" />
-            <img src={blogPicture3} alt="Will Letter for Lunch" />
-            <img src={blogPicture4} alt="No Photos Please" />
-            <img src={blogPicture5} alt="Flour Crowns" />
-          </div>
+          <h2>Here’s a quick look at our inside scoop schedule:</h2>
+          <div css={columnStyle}>
+            <div>
+              <img src={blogPicture1} alt="Daily Dishonesty" />
+              <img src={blogPicture2} alt="Ex Boyfriend Tears" />
+              <img src={blogPicture3} alt="Will Letter for Lunch" />
+              <img src={blogPicture4} alt="No Photos Please" />
+              <img src={blogPicture5} alt="Flour Crowns" />
+            </div>
 
-          <div>
-            <p>Day 1 </p> <p class="column">/ May 6th at 12pm EST</p>
-            <a href="#1">Daily Dishonesty</a>
-            <p class="column">
-              In 2012, I started a lettering blog that chronicled all of the
-              little white lies my friends and I told in college. Little did I
-              know it would go viral and land me a book deal while I was still
-              in school! This is the project that launched my lettering career &
-              gave me the confidence to leave my full-time job to pursue
-              freelance
-            </p>
-            <p>Day 2 </p> <p class="column">/ May 7th at 12pm EST</p>
-            <a href="#1">Ex Boyfriend Tears</a>
-            <p class="column">
-              A particular nasty break up inspired a line of cups and flasks
-              called Ex Boyfriend Tears. I was originally only planning on
-              producing about 50 for fun, but they got shared like crazy
-              online...and I ended up selling over 600 of them. Nasty Gal (RIP)
-              bought a wholesale order from me, and Urban Outfitters even ripped
-              me off!
-            </p>
-            <p>Day 3 </p> <p class="column">/ May 8th at 12pm EST</p>
-            <a href="#1">Will Letter for Lunch</a>
-            <p class="column">
-              I started bartering restaurant chalkboard menus for the exact menu
-              items I lettered. Within 1 year, I had practiced lettering and
-              eaten delicious free food at over 30 restaurants in New York City.
-              Plus, I built my chalk lettering portfolio up and landed projects
-              with Chobani, Samuel Adams, and Microsoft as a result.
-            </p>
-            <p>Day 4 </p> <p class="column">/ May 9th at 12pm EST</p>
-            <a href="#1">No Photos Please</a>
-            <p class="column">
-              For all of 2016, I traveled and worked around the world. In order
-              to spend less time looking at a screen, I challenged myself to
-              document my trip in travel drawings. I lettered my way around the
-              world and shared my drawings, not travel pics, on social media.
-              The result? Improved drawing skills and tons of new followers!
-            </p>
-            <p>Day 5 </p> <p class="column">/ May 10th at 12pm EST</p>
-            <a href="#1">Flour Crowns</a>
-            <p class="column">
-              I decided to take a pun way too far and put flours instead of
-              flowers in my hair. Why? Mostly for fun, but also to become more
-              associated with the food world because I knew I wanted to work on
-              a cookbook in the future. This was a delicious baby step in that
-              direction without distracting from my lettering career too much.
-            </p>
+            <div>
+              <span>
+                <p>
+                  Day 1 <span class="column">/ May 6th at 12pm EST</span>
+                </p>
+              </span>
+
+              <a href="#1">Daily Dishonesty</a>
+              <p class="column">
+                In 2012, I started a lettering blog that chronicled all of the
+                little white lies my friends and I told in college. Little did I
+                know it would go viral and land me a book deal while I was still
+                in school! This is the project that launched my lettering career
+                & gave me the confidence to leave my full-time job to pursue
+                freelance
+              </p>
+
+              <span>
+                <p>
+                  Day 2 <span class="column">/ May 7th at 12pm EST</span>
+                </p>
+              </span>
+
+              <a href="#1">Ex Boyfriend Tears</a>
+              <p class="column">
+                A particular nasty break up inspired a line of cups and flasks
+                called Ex Boyfriend Tears. I was originally only planning on
+                producing about 50 for fun, but they got shared like crazy
+                online...and I ended up selling over 600 of them. Nasty Gal
+                (RIP) bought a wholesale order from me, and Urban Outfitters
+                even ripped me off!
+              </p>
+
+              <span>
+                <p>
+                  Day 3 <span class="column">/ May 8th at 12pm EST</span>
+                </p>
+              </span>
+
+              <a href="#1">Will Letter for Lunch</a>
+              <p class="column">
+                I started bartering restaurant chalkboard menus for the exact
+                menu items I lettered. Within 1 year, I had practiced lettering
+                and eaten delicious free food at over 30 restaurants in New York
+                City. Plus, I built my chalk lettering portfolio up and landed
+                projects with Chobani, Samuel Adams, and Microsoft as a result.
+              </p>
+              <span>
+                <p>
+                  Day 4 <span class="column">/ May 9th at 12pm EST</span>
+                </p>
+              </span>
+
+              <a href="#1">No Photos Please</a>
+              <p class="column">
+                For all of 2016, I traveled and worked around the world. In
+                order to spend less time looking at a screen, I challenged
+                myself to document my trip in travel drawings. I lettered my way
+                around the world and shared my drawings, not travel pics, on
+                social media. The result? Improved drawing skills and tons of
+                new followers!
+              </p>
+              <span>
+                <p>
+                  Day 5 <span class="column">/ May 10th at 12pm EST</span>
+                </p>
+              </span>
+              <a href="#1">Flour Crowns</a>
+              <p class="column">
+                I decided to take a pun way too far and put flours instead of
+                flowers in my hair. Why? Mostly for fun, but also to become more
+                associated with the food world because I knew I wanted to work
+                on a cookbook in the future. This was a delicious baby step in
+                that direction without distracting from my lettering career too
+                much.
+              </p>
+            </div>
           </div>
         </section>
         <hr />
@@ -186,10 +241,11 @@ function App() {
         <hr />
         <footer css={footerStyle}>
           <a href="#1">Terms of Use</a>
-          <p>/</p>
-          <a href="#1">Privacy Policy</a>
+          <span>
+            /<a href="#1">Privacy Policy</a>
+          </span>
         </footer>
-      </body>
+      </div>
     </div>
   );
 }
